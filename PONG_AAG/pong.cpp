@@ -19,8 +19,18 @@ float derPaletaY = 0.0f;
 const float PELOTA_WIDTH = 15.0f;
 const float PELOTA_HEIGHT = 15.0f;
 
-// FUNCTIONS
-	//BALL SPEED
-	//BALL BOUNCE
-	//MOVEMENT PADDLE A & PADDLE B
+	// VELOCIDAD DE LA PELOTA
+float velPelotaX = 10.0f;
+float velPelotY = 10.0f;
+
+	// MARCADOR DE PUNTOS
+int izqPuntos = 0;
+int derPuntos = 0;
+
+// FUNCIONES
+void display();
+void keyboard(unsigned char, int, int);
+void update(int);
+void drawPaleta(float x, float y);
+void drawPelota(float x, float y);
 
