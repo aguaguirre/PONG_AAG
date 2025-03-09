@@ -34,6 +34,7 @@ int derPuntos = 0;
 // FUNCIONES
 void display();
 void keyboard(unsigned char, int, int);
+void teclasAB(int, int, int);
 void update(int);
 void reshape(int, int);
 void drawPaleta(float x, float y);
@@ -107,9 +108,26 @@ void keyboard(unsigned char key, int x, int y) {
 			izqPaletaY = PALETA_HEIGHT / 2;
 			break;
 		}
-		//case ''{
-		//	}
 	}
+	glutPostRedisplay();
+}
+
+void teclasAB(int key, int x, int y) {
+	switch (key) {
+	case GLUT_KEY_UP:
+		derPaletaY += 20.0f;
+		if (derPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT) {
+			derPaletaY = VENTANA_HEIGHT - PALETA_HEIGHT / 2;
+		}
+		break;
+	case GLUT_KEY_DOWN:
+		derPaletaY -= 20.0f;
+		if (derPaletaY - PALETA_HEIGHT / 2 < 0) {
+			derPaletaY = PALETA_HEIGHT / 2;
+		}
+		break;
+	}
+	glutPostRedisplay();
 }
 
 // UPDATE
