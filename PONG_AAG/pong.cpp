@@ -1,5 +1,6 @@
 #include <GL/glut.h>
 #include <math.h>
+#include <iostream>
 
 // TAMAÑO Y ESTÉTICA
 
@@ -33,4 +34,24 @@ void keyboard(unsigned char, int, int);
 void update(int);
 void drawPaleta(float x, float y);
 void drawPelota(float x, float y);
+void drawTexto(float x, float y, const char* text);
+
+int main() {
+	// INICIALIZACIÓN DE GLUT
+	glutInit();
+	glutInitDisplayMode();
+	glutInitWindowSize();
+}
+
+void display() {
+	drawPaleta(0.0f, izqPaletaY);
+	drawPaleta(VENTANA_WIDTH - PALETA_WIDTH, derPaletaY);
+
+	//drawPelota();
+
+	char marPuntos[100];
+	sprintf_s(marPuntos, "IZQ: %d  DER: %d", izqPuntos, derPuntos);
+	drawTexto(VENTANA_WIDTH / 2 - 100, VENTANA_HEIGHT - 60, marPuntos
+	);
+}
 
