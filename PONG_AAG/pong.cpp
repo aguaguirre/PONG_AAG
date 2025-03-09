@@ -39,14 +39,14 @@ void drawTexto(float x, float y, const char* text);
 int main(int argc, char** argv) {
 
 	// INICIALIZACIÓN DE GLUT
-	glutInit(&argcp, argv);
+	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(VENTANA_WIDTH, VENTANA_HEIGHT);
 	glutCreateWindow("PONG");
 
 	// CALLBACKS 
-	glutDisplayFunc(display);
-	glutKeyboardFunc(keyboard);
+	//utDisplayFunc(display);
+	//utKeyboardFunc(keyboard);
 }
 
 void display() {
