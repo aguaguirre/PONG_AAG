@@ -36,11 +36,17 @@ void drawPaleta(float x, float y);
 void drawPelota(float x, float y);
 void drawTexto(float x, float y, const char* text);
 
-int main() {
+int main(int argc, char** argv) {
+
 	// INICIALIZACIÓN DE GLUT
-	glutInit();
-	glutInitDisplayMode();
-	glutInitWindowSize();
+	glutInit(&argcp, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowSize(VENTANA_WIDTH, VENTANA_HEIGHT);
+	glutCreateWindow("PONG");
+
+	// CALLBACKS 
+	glutDisplayFunc(display);
+	glutKeyboardFunc(keyboard);
 }
 
 void display() {
