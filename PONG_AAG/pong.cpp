@@ -120,16 +120,30 @@ void update(int val) {
 // DIBUJAR 
 // PALETAS
 void drawPaleta(float x, float y) {
-
+	glBegin(GL_QUADS);
+	glVertex2f(x, y - PALETA_WIDTH / 2);
+	glVertex2f(x + PALETA_WIDTH, y - PALETA_HEIGHT / 2);
+	glVertex2f(x + PALETA_WIDTH, y + PALETA_HEIGHT / 2);
+	glVertex2f(x, y + PALETA_HEIGHT / 2);
+	glEnd();
 }
 
 // PELOTA
 void drawPelota(float x, float y) {
-
+	glBegin(GL_QUADS);
+	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glEnd();
 }
 
 // TEXTO
 void drawTexto(float x, float y, const char* texto) {
-
+	glRasterPos2d(x, y);
+	while (*texto) {
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *texto);
+		texto++;
+	}
 }
 
