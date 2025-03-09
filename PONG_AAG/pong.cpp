@@ -1,5 +1,5 @@
 #include <GL/glut.h>
-#include <math.h>
+#include <cmath>
 #include <iostream>
 
 // TAMAÑO Y ESTÉTICA
@@ -94,6 +94,42 @@ void reshape(int w, int h) {
 
 // CONTROLES DEL JUEGO
 void keyboard(unsigned char key, int x, int y) {
+	switch (key) {
+	case 'w':
+		izqPaletaY += 20.0f;
+		if (izqPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT) {
+			izqPaletaY = VENTANA_HEIGHT - PALETA_HEIGHT / 2;
+			break;
+		}
+	case 's':
+		izqPaletaY -= 20.f;
+		if (izqPaletaY - PALETA_HEIGHT / 2 < 0) {
+			izqPaletaY = PALETA_HEIGHT / 2;
+			break;
+		}
+		//case ''{
+		//	}
+	}
+}
+
+// UPDATE
+void update(int val) {
+
+}
+
+// DIBUJAR 
+// PALETAS
+void drawPaleta(float x, float y) {
+
+}
+
+// PELOTA
+void drawPelota(float x, float y) {
+
+}
+
+// TEXTO
+void drawTexto(float x, float y, const char* texto) {
 
 }
 
