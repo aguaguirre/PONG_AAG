@@ -20,8 +20,9 @@ float derPaletaY = 0.0f;
 const float PELOTA_TAMANO = 15.0f;
 float pelotaX = VENTANA_WIDTH / 2.0f;
 float pelotaY = VENTANA_HEIGHT / 2.0f;
-
-
+float pelotaVelX = 4.0f;
+float pelotaVelY = 4.0f;
+const float PELOTA_VEL_INCREMENT = 0.1f;
 
 	// VELOCIDAD DE LA PELOTA
 float velPelotaX = 10.0f;
@@ -132,7 +133,23 @@ void teclasAB(int key, int x, int y) {
 
 // UPDATE
 void update(int val) {
+	// POSICIÓN PELOTA
+	pelotaX += pelotaVelX;
+	pelotaY += pelotaVelY;
 
+	// PELOTA CHOCANDO  CON LA PARED
+	if (pelotaY + PELOTA_TAMANO / 2 > VENTANA_HEIGHT || pelotaY - PELOTA_TAMANO / 2 < 0) {
+		pelotaVelX = -pelotaVelY;
+	}
+
+	// PELOTA CHOCANDO CON LAS PALETAS
+	if (pelotaX - PELOTA_TAMANO / 2 < PALETA_WIDTH && pelotaY > izqPaletaY + PALETA_HEIGHT / 2) {
+		pelotaVelX = -pelotaVelX;
+		pelotaVelX += (pelotaVelX > 0) ? PELOTA_VEL_INCREMENT : -PELOTA_VEL_INCREMENT;
+	}
+	
+	glutPostRedisplay();
+	glutTimerFunc(16, update, 0);
 }
 
 // DIBUJAR 
