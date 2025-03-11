@@ -149,9 +149,13 @@ void update(int value) {
 	}
 
 	// PELOTA CHOCANDO CON LAS PALETAS
-	if (pelotaX - PELOTA_TAMANO / 2 < PALETA_WIDTH && pelotaY > izqPaletaY + PALETA_HEIGHT / 2) {
+	if (pelotaX - PELOTA_TAMANO / 2 < PALETA_WIDTH && pelotaY > izqPaletaY + PALETA_HEIGHT / 2 && pelotaY < izqPaletaY + PALETA_HEIGHT / 2){
 		pelotaVelX = -pelotaVelX;
-		pelotaVelX += (pelotaVelX > 0) ? PELOTA_VEL_INCREMENT : -PELOTA_VEL_INCREMENT;
+		//pelotaVelX += (pelotaVelX > 0) ? PELOTA_VEL_INCREMENT : -PELOTA_VEL_INCREMENT;
+	}
+
+	if (pelotaX + PELOTA_TAMANO / 2 > VENTANA_WIDTH && pelotaY > izqPaletaY - PALETA_HEIGHT / 2 && pelotaY < izqPaletaY + PALETA_HEIGHT / 2) {
+		pelotaVelX = -pelotaVelX;
 	}
 	
 	glutPostRedisplay();
