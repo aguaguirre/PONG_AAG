@@ -153,9 +153,14 @@ void update(int value) {
 		pelotaVelX = -pelotaVelX;
 		//pelotaVelX += (pelotaVelX > 0) ? PELOTA_VEL_INCREMENT : -PELOTA_VEL_INCREMENT;
 	}
-
 	if (pelotaX + PELOTA_TAMANO / 2 > VENTANA_WIDTH && pelotaY > izqPaletaY - PALETA_HEIGHT / 2 && pelotaY < izqPaletaY + PALETA_HEIGHT / 2) {
 		pelotaVelX = -pelotaVelX;
+	}
+
+	// OUT OF BOUNDS
+	if (pelotaX - PELOTA_TAMANO / 2 < 0 || pelotaX + PELOTA_TAMANO / 2 > VENTANA_WIDTH) {
+		pelotaX = VENTANA_WIDTH / 2.0f;
+		pelotaY = VENTANA_HEIGHT / 2.0f;
 	}
 	
 	glutPostRedisplay();
