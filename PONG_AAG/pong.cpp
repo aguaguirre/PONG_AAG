@@ -173,9 +173,9 @@ void drawPaleta(float x, float y) {
 void drawPelota(float x, float y) {
 	glBegin(GL_QUADS);
 	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
-	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
-	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
-	glVertex2f(x - PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glVertex2f(x + PELOTA_TAMANO / 2, y - PELOTA_TAMANO / 2);
+	glVertex2f(x + PELOTA_TAMANO / 2, y + PELOTA_TAMANO / 2);
+	glVertex2f(x - PELOTA_TAMANO / 2, y + PELOTA_TAMANO / 2);
 	glEnd();
 }
 
