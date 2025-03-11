@@ -99,40 +99,46 @@ void keyboard(unsigned char key, int x, int y) {
 	switch (key) {
 	case 'w':
 		izqPaletaY += 20.0f;
-		if (izqPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT) {
+		if (izqPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT)
 			izqPaletaY = VENTANA_HEIGHT - PALETA_HEIGHT / 2;
 			break;
-		}
 	case 's':
 		izqPaletaY -= 20.f;
-		if (izqPaletaY - PALETA_HEIGHT / 2 < 0) {
+		if (izqPaletaY - PALETA_HEIGHT / 2 < 0)
 			izqPaletaY = PALETA_HEIGHT / 2;
 			break;
-		}
+	case 'i':
+		derPaletaY += 20.0f;
+		if (derPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT)
+			derPaletaY = VENTANA_HEIGHT - PALETA_HEIGHT / 2;
+		break;
+	case 'k':
+		derPaletaY -= 20.0f;
+		if (derPaletaY - PALETA_HEIGHT / 2 < 0)
+			derPaletaY = PALETA_HEIGHT / 2;
+		break;
 	}
 	glutPostRedisplay();
 }
 
-void teclasAB(int key, int x, int y) {
+/*void teclasAB(int key, int x, int y) {
 	switch (key) {
 	case GLUT_KEY_UP:
 		derPaletaY += 20.0f;
-		if (derPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT) {
+		if (derPaletaY + PALETA_HEIGHT / 2 > VENTANA_HEIGHT)
 			derPaletaY = VENTANA_HEIGHT - PALETA_HEIGHT / 2;
-		}
 		break;
 	case GLUT_KEY_DOWN:
 		derPaletaY -= 20.0f;
-		if (derPaletaY - PALETA_HEIGHT / 2 < 0) {
+		if (derPaletaY - PALETA_HEIGHT / 2 < 0) 
 			derPaletaY = PALETA_HEIGHT / 2;
-		}
 		break;
 	}
 	glutPostRedisplay();
-}
+}*/
 
 // UPDATE
-void update(int val) {
+void update(int value) {
 	// POSICIÓN PELOTA
 	pelotaX += pelotaVelX;
 	pelotaY += pelotaVelY;
