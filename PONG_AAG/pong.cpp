@@ -35,7 +35,7 @@ int derPuntos = 0;
 // FUNCIONES
 void display();
 void keyboard(unsigned char, int, int);
-void teclasAB(int, int, int);
+//void teclasAB(int, int, int);
 void update(int);
 void reshape(int, int);
 void drawPaleta(float x, float y);
@@ -144,14 +144,17 @@ void update(int value) {
 	pelotaY += pelotaVelY;
 
 	// PELOTA CHOCANDO  CON LA PARED
-	if (pelotaY + PELOTA_TAMANO / 2 > VENTANA_HEIGHT || pelotaY - PELOTA_TAMANO / 2 < 0) {
+	/*if (pelotaY + PELOTA_TAMANO / 2 > VENTANA_HEIGHT || pelotaY - PELOTA_TAMANO / 2 < 0) {
 		pelotaVelX = -pelotaVelY;
+	}*/
+
+	if (pelotaY < 0 || pelotaY >= VENTANA_HEIGHT) {
+		pelotaVelY = -pelotaVelY;
 	}
 
 	// PELOTA CHOCANDO CON LAS PALETAS
 	if (pelotaX - PELOTA_TAMANO / 2 < PALETA_WIDTH && pelotaY > izqPaletaY + PALETA_HEIGHT / 2 && pelotaY < izqPaletaY + PALETA_HEIGHT / 2){
 		pelotaVelX = -pelotaVelX;
-		//pelotaVelX += (pelotaVelX > 0) ? PELOTA_VEL_INCREMENT : -PELOTA_VEL_INCREMENT;
 	}
 	if (pelotaX + PELOTA_TAMANO / 2 > VENTANA_WIDTH && pelotaY > izqPaletaY - PALETA_HEIGHT / 2 && pelotaY < izqPaletaY + PALETA_HEIGHT / 2) {
 		pelotaVelX = -pelotaVelX;
@@ -171,7 +174,7 @@ void update(int value) {
 // PALETAS
 void drawPaleta(float x, float y) {
 	glBegin(GL_QUADS);
-	glVertex2f(x, y - PALETA_WIDTH / 2);
+	glVertex2f(x, (y - PALETA_WIDTH) / 2);
 	glVertex2f(x + PALETA_WIDTH, y - PALETA_HEIGHT / 2);
 	glVertex2f(x + PALETA_WIDTH, y + PALETA_HEIGHT / 2);
 	glVertex2f(x, y + PALETA_HEIGHT / 2);
